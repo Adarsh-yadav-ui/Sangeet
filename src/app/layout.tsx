@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Shadows_Into_Light_Two } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import ConvexClientProvider from "@/components/providers";
+import ConvexClientProvider, { ThemeProvider } from "@/components/providers";
 const Shadows = Shadows_Into_Light_Two({
   weight: ["400"],
 });
@@ -24,7 +24,16 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body className={`${Shadows.style} ${Shadows.className} antialiased`}>
-          <ConvexClientProvider>{children}</ConvexClientProvider>
+          <ConvexClientProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </ConvexClientProvider>
         </body>
       </html>
     </ClerkProvider>

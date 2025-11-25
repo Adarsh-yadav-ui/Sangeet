@@ -14,6 +14,9 @@ import {
 import { SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Authenticated, Unauthenticated } from "convex/react";
+import Link from "next/link";
+import ElectricBorder from "@/components/ElectricBorder";
+import GlareHover from "@/components/GlareHover";
 
 export default function App() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
@@ -109,6 +112,9 @@ function Header({
           </Unauthenticated>
           <Authenticated>
             <UserButton />
+            <Button variant="ghost" asChild>
+              <Link href="/dashboard">Dashboard</Link>
+            </Button>
           </Authenticated>
         </div>
       </div>
