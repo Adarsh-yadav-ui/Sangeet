@@ -1,4 +1,5 @@
 import { AppSidebar } from "@/components/app-sidebar";
+import { ModeToggle } from "@/components/mode-toggle";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -13,8 +14,19 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import AudioPlayer from "../../components/audio-player";
 
 export default function Page() {
+  if (false) {
+    <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+      <div className="grid auto-rows-min gap-4 md:grid-cols-3">
+        <div className="bg-muted/50 aspect-video rounded-xl" />
+        <div className="bg-muted/50 aspect-video rounded-xl" />
+        <div className="bg-muted/50 aspect-video rounded-xl" />
+      </div>
+      <div className="bg-muted/50 min-h-screen flex-1 rounded-xl md:min-h-min" />
+    </div>;
+  }
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -29,13 +41,11 @@ export default function Page() {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    Building Your Application
-                  </BreadcrumbLink>
+                  <BreadcrumbLink href="/">Sangeet</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                  <BreadcrumbPage>Dashboard</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -43,14 +53,8 @@ export default function Page() {
         </header>
 
         {/* Main content */}
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="bg-muted/50 aspect-video rounded-xl" />
-            <div className="bg-muted/50 aspect-video rounded-xl" />
-            <div className="bg-muted/50 aspect-video rounded-xl" />
-          </div>
-          <div className="bg-muted/50 min-h-screen flex-1 rounded-xl md:min-h-min" />
-        </div>
+        <ModeToggle />
+        <AudioPlayer />
       </SidebarInset>
     </SidebarProvider>
   );
