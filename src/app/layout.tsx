@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Shadows_Into_Light_Two } from "next/font/google";
+import { Walter_Turncoat } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import ConvexClientProvider, { ThemeProvider } from "@/components/providers";
-const Shadows = Shadows_Into_Light_Two({
+const Shadows = Walter_Turncoat({
   weight: ["400"],
 });
 
