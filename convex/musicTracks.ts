@@ -168,3 +168,7 @@ export const updateLikes = mutation({
     await ctx.db.patch(args.id, { likes: args.likes + 1 });
   },
 });
+
+export const generateUploadUrl = mutation(async (ctx) => {
+  return await ctx.storage.generateUploadUrl();
+});

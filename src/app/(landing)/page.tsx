@@ -15,8 +15,6 @@ import { SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Authenticated, Unauthenticated } from "convex/react";
 import Link from "next/link";
-import ElectricBorder from "@/components/ElectricBorder";
-import GlareHover from "@/components/GlareHover";
 
 export default function App() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
@@ -145,10 +143,12 @@ function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <button className="w-full sm:w-auto px-8 py-4 bg-fuchsia-500 hover:bg-fuchsia-600 text-white rounded-full text-lg font-semibold transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 shadow-lg shadow-fuchsia-500/25">
-              <Play className="w-5 h-5 fill-current" />
-              Start listening free
-            </button>
+            <Link href="/dashboard">
+              <Button className="w-full sm:w-auto px-8 py-4 bg-fuchsia-500 hover:bg-fuchsia-600 text-white rounded-full text-lg font-semibold transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 shadow-lg shadow-fuchsia-500/25">
+                <Play className="w-5 h-5 fill-current" />
+                Start listening free
+              </Button>
+            </Link>
             <button className="w-full sm:w-auto px-8 py-4 bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-800 hover:border-fuchsia-500 dark:hover:border-fuchsia-500 rounded-full text-lg font-semibold transition-all hover:scale-105 active:scale-95">
               View plans
             </button>

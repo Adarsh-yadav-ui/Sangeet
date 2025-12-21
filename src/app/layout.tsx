@@ -3,6 +3,8 @@ import { Walter_Turncoat } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import ConvexClientProvider, { ThemeProvider } from "@/components/providers";
+import { EdgeStoreProvider } from "../lib/edgestore";
+
 const Shadows = Walter_Turncoat({
   weight: ["400"],
 });
@@ -31,7 +33,7 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              {children}
+              <EdgeStoreProvider>{children}</EdgeStoreProvider>
             </ThemeProvider>
           </ConvexClientProvider>
         </body>
